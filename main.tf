@@ -12,16 +12,16 @@ resource "digitalocean_firewall" "swarm-mode-outbound-fw" {
       protocol                       = "udp"
       port_range                     = "all"
       destination_addresses          = ["${var.allowed_outbound_addresses}"]
-      destination_tags               = ["${var.allowed_outbound_droplet_tags}"]
-      destination_droplet_ids        = ["${var.allowed_outbound_droplet_ids}"]
+      destination_tags               = ["${var.allowed_outbound_droplet_tags}", "${var.cluster_droplet_ids}"]
+      destination_droplet_ids        = ["${var.allowed_outbound_droplet_ids}", "${var.cluster_droplet_ids}"]
       destination_load_balancer_uids = ["${var.allowed_outbound_load_balancer_uids}"]
     },
     {
       protocol                       = "tcp"
       port_range                     = "all"
       destination_addresses          = ["${var.allowed_outbound_addresses}"]
-      destination_tags               = ["${var.allowed_outbound_droplet_tags}"]
-      destination_droplet_ids        = ["${var.allowed_outbound_droplet_ids}"]
+      destination_tags               = ["${var.allowed_outbound_droplet_tags}", "${var.cluster_droplet_ids}"]
+      destination_droplet_ids        = ["${var.allowed_outbound_droplet_ids}", "${var.cluster_droplet_ids}"]
       destination_load_balancer_uids = ["${var.allowed_outbound_load_balancer_uids}"]
     },
   ]
@@ -63,23 +63,6 @@ resource "digitalocean_firewall" "swarm-mode-internal-fw" {
       source_tags        = ["${var.cluster_tags}"]
       source_droplet_ids = ["${var.cluster_droplet_ids}"]
       source_addresses   = []
-    },
-  ]
-
-  outbound_rule = [
-    {
-      protocol                = "udp"
-      port_range              = "all"
-      destination_tags        = ["${var.cluster_tags}"]
-      destination_droplet_ids = ["${var.cluster_droplet_ids}"]
-      destination_addresses   = []
-    },
-    {
-      protocol                = "tcp"
-      port_range              = "all"
-      destination_tags        = ["${var.cluster_tags}"]
-      destination_droplet_ids = ["${var.cluster_droplet_ids}"]
-      destination_addresses   = []
     },
   ]
 }
