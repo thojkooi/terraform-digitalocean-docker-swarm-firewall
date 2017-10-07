@@ -38,6 +38,7 @@ resource "digitalocean_firewall" "swarm-mode-internal-fw" {
       port_range         = "2377"
       source_tags        = ["${var.cluster_tags}"]
       source_droplet_ids = ["${var.cluster_droplet_ids}"]
+      source_addresses   = []
     },
     {
       # for container network discovery
@@ -45,6 +46,7 @@ resource "digitalocean_firewall" "swarm-mode-internal-fw" {
       port_range         = "7946"
       source_tags        = ["${var.cluster_tags}"]
       source_droplet_ids = ["${var.cluster_droplet_ids}"]
+      source_addresses   = []
     },
     {
       # UDP for the container overlay network.
@@ -52,6 +54,7 @@ resource "digitalocean_firewall" "swarm-mode-internal-fw" {
       port_range         = "4789"
       source_tags        = ["${var.cluster_tags}"]
       source_droplet_ids = ["${var.cluster_droplet_ids}"]
+      source_addresses   = []
     },
     {
       # for container network discovery.
@@ -59,6 +62,7 @@ resource "digitalocean_firewall" "swarm-mode-internal-fw" {
       port_range         = "7946"
       source_tags        = ["${var.cluster_tags}"]
       source_droplet_ids = ["${var.cluster_droplet_ids}"]
+      source_addresses   = []
     },
   ]
 
@@ -68,12 +72,14 @@ resource "digitalocean_firewall" "swarm-mode-internal-fw" {
       port_range              = "all"
       destination_tags        = ["${var.cluster_tags}"]
       destination_droplet_ids = ["${var.cluster_droplet_ids}"]
+      destination_addresses   = []
     },
     {
       protocol                = "tcp"
       port_range              = "all"
       destination_tags        = ["${var.cluster_tags}"]
       destination_droplet_ids = ["${var.cluster_droplet_ids}"]
+      destination_addresses   = []
     },
   ]
 }
