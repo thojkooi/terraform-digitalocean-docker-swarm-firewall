@@ -2,6 +2,9 @@
 
 Terraform module to configure Docker Swarm firewall rules on DigitalOcean.
 
+[![CircleCI](https://circleci.com/gh/thojkooi/terraform-digitalocean-docker-swarm-firewall/tree/master.svg?style=svg)](https://circleci.com/gh/thojkooi/terraform-digitalocean-docker-swarm-firewall/tree/master)
+
+
 ## Usage
 
 ```hcl
