@@ -1,9 +1,10 @@
-# Terraform - Digital Ocean Swarm firewall
+# Terraform - Digital Ocean Swarm mode firewall rules
 
-Terraform module to configure Docker Swarm firewall rules on DigitalOcean.
+Terraform module to configure Docker Swarm mode firewall rules on DigitalOcean. Based on the [Docker documentation](https://docs.docker.com/engine/swarm/swarm-tutorial/#open-protocols-and-ports-between-the-hosts).
 
 [![CircleCI](https://circleci.com/gh/thojkooi/terraform-digitalocean-docker-swarm-firewall/tree/master.svg?style=svg)](https://circleci.com/gh/thojkooi/terraform-digitalocean-docker-swarm-firewall/tree/master)
 
+---
 
 ## Usage
 
@@ -40,6 +41,7 @@ module "swarm-firewall" {
     allowed_outbound_addresses = ["0.0.0.0/0"]
 }
 ```
+
 
 ## Requirements
 
