@@ -1,5 +1,6 @@
 provider "digitalocean" {
-  token = "${var.do_token}"
+  version = "~> 0.1"
+  token   = "${var.do_token}"
 }
 
 resource "digitalocean_firewall" "swarm-mode-outbound-fw" {
