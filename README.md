@@ -8,13 +8,12 @@ Terraform module to configure Docker Swarm mode firewall rules on DigitalOcean. 
 
 ## Requirements
 
-- Terraform
-- Digitalocean account / API token with write access
+- [Terraform](https://www.terraform.io/)
+- [Digitalocean account / API token with write access](https://www.digitalocean.com/docs/api/create-personal-access-token/)
 
 ## Usage
 
 ```hcl
-
 provider "digitalocean" {
 }
 
@@ -51,6 +50,8 @@ module "swarm-mode-firewall" {
 }
 ```
 
+See [examples](https://github.com/thojkooi/terraform-digitalocean-docker-swarm-firewall/tree/master/examples) for more.
+
 ## Firewall rules
 
 The following rules will be created:
@@ -70,3 +71,7 @@ Please note that previous versions of this module also added rules for SSH acces
 
 - [DigitalOcean firewall rules set](https://github.com/thojkooi/terraform-digitalocean-firewall-rules), provides SSH inbound/outbound and various outbound rules.
 - [DigitalOcean Remote Docker API access](https://github.com/thojkooi/terraform-digitalocean-firewall-docker-api).
+
+## License
+
+[MIT © Thomas Kooi](LICENSE)
